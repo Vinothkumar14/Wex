@@ -172,10 +172,29 @@ Stack: TypeScript, Express, official `neo4j-driver`, Vite, React.
 
 ## Hosted demo & screen recording
 
-- **Demo:** _add your Render / Railway URL after deploy_
+- **Demo:** _add your Render URL after deploy_
 - **Recording:** _add a 60–90s walkthrough (Guest check fries + recall lot VD-CC-4412)_
 
-Deploy: push this repo, create a Render Web Service from `render.yaml`, paste `NEO4J_URI` / `NEO4J_USER` / `NEO4J_PASSWORD` into the service env. Free instances sleep; the first request may wait a minute.
+### Deploy on Render (free)
+
+`render.yaml` only describes the service. **Do not put the CognoDB password in git.** Set secrets in the Render dashboard.
+
+1. Sign up at [dashboard.render.com](https://dashboard.render.com) with GitHub.
+2. **New → Web Service** → connect `Vinothkumar14/Wex`.
+3. Branch: `dev`. Render will pick up `render.yaml` (build `npm install && npm run build`, start `npm start`).
+4. In **Environment**, add:
+
+   | Key | Value |
+   | --- | --- |
+   | `NODE_ENV` | `production` |
+   | `NEO4J_URI` | `bolt+s://YOUR-INSTANCE.databases.cognodb.com` |
+   | `NEO4J_USER` | `cognodb` |
+   | `NEO4J_PASSWORD` | the password from the CognoDB console |
+
+5. Deploy. The public URL looks like `https://mise-xxxx.onrender.com`.
+6. Free instances sleep; the first request after idle can take ~1 minute.
+
+Keep the CognoDB instance running until Wexa has reviewed the submission.
 
 ## License
 
