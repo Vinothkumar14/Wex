@@ -9,8 +9,8 @@ services:
       - key: NODE_ENV
         value: production
       - key: NEO4J_URI
-        sync: false
+        sync: bolt+s://db-9992310b.databases.cognodb.com
       - key: NEO4J_USER
         value: cognodb
       - key: NEO4J_PASSWORD
-        sync: false
+        sync: 654ea26490c082443181abec3b96bdfa
