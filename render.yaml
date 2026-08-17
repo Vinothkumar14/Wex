@@ -3,14 +3,15 @@ services:
     name: mise
     runtime: node
     plan: free
+    branch: dev
     buildCommand: npm install && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
       - key: NEO4J_URI
-        sync: bolt+s://db-9992310b.databases.cognodb.com
+        sync: false
       - key: NEO4J_USER
         value: cognodb
       - key: NEO4J_PASSWORD
-        sync: 654ea26490c082443181abec3b96bdfa
+        sync: false
