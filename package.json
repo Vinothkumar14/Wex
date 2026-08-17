@@ -1,0 +1,33 @@
+{
+  "name": "mise",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kitchen graph intelligence — allergen paths and recall blast radius on CognoDB",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "tsx watch server/index.ts",
+    "dev:client": "vite --config client/vite.config.ts",
+    "seed": "tsx scripts/seed.ts",
+    "build": "vite build --config client/vite.config.ts && tsc -p tsconfig.server.json",
+    "start": "node dist/server/index.js",
+    "typecheck": "tsc -p tsconfig.server.json --noEmit && tsc -p client/tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@vitejs/plugin-react": "^6.0.5",
+    "concurrently": "^10.0.5",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "neo4j-driver": "^6.2.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.2",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.1"
+  }
+}

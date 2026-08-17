@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: mise
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEO4J_URI
+        sync: false
+      - key: NEO4J_USER
+        value: cognodb
+      - key: NEO4J_PASSWORD
+        sync: false
